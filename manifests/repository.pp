@@ -16,7 +16,7 @@
 #
 class bareos::repository (
   Enum['19.2', '20', '21', '24'] $release             = '24',
-  Optional[String[1]]            $gpg_key_fingerprint = undef,
+  Optional[String[1]]            $gpg_key_fingerprint = '82834CF002D89BA55C1ED0AA42DA24A6DFEF9127',
   Boolean                        $subscription        = false,
   Optional[String]               $username            = undef,
   Optional[String]               $password            = undef,
@@ -40,23 +40,6 @@ class bareos::repository (
   $os = $facts['os']['name']
   $osrelease = $facts['os']['release']['full']
   $osmajrelease = $facts['os']['release']['major']
-
-  if $gpg_key_fingerprint {
-    $_gpg_key_fingerprint = $gpg_key_fingerprint
-  } elsif versioncmp($release, '21') >= 0 {
-    # >= bareos 21
-    $_gpg_key_fingerprint = '91DA 1DC3 564A E20A 76C4  CA88 E019 57D6 C9FE D482'
-  } elsif versioncmp($release, '20') >= 0 {
-    # >= bareos 20
-    $_gpg_key_fingerprint = 'C68B 001F 74D2 F202 43D0 B7A2 0CCB A537 DBE0 83A6'
-  } else {
-    # >= bareos-18.2
-    if $subscription {
-      $_gpg_key_fingerprint = '641A 1497 F1B1 1BEA 945F 840F E5D8 82B2 8657 AE28'
-    } else {
-      $_gpg_key_fingerprint = 'A0CF E15F 71F7 9857 4AB3 63DD 1182 83D9 A786 2CEE'
-    }
-  }
 
   $yum_username = $username ? {
     undef   => 'absent',
@@ -128,11 +111,11 @@ class bareos::repository (
         # release key file is not avaiable without login and
         # apt-key cannot handle username and password in URI
         $key = {
-          id => regsubst($_gpg_key_fingerprint, ' ', '', 'G'),
+          id => $gpg_key_fingerprint,
         }
       } else {
         $key = {
-          id     => regsubst($_gpg_key_fingerprint, ' ', '', 'G'),
+          id     => $gpg_key_fingerprint,
           source => "${location}/Release.key",
         }
       }
