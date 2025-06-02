@@ -4341,23 +4341,6 @@ Required: false
 
 Default value: `undef`
 
-##### <a name="-bareos--director--catalog--db_driver"></a>`db_driver`
-
-Data type: `Any`
-
-Db Driver
-
-Bareos Datatype: string
-Bareos Default: postgresql
-Required: false
-
-This parameter is deprecated. The only valid value under bareos >= 21 is
-`postgresql`.
-
-See https://docs.bareos.org/Configuration/Director.html#config-Dir_Catalog_DbDriver
-
-Default value: `undef`
-
 ##### <a name="-bareos--director--catalog--db_name"></a>`db_name`
 
 Data type: `Any`

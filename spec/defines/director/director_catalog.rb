@@ -40,7 +40,6 @@ describe 'bareos::director::catalog' do
         res.param('name', 'Name', 'name').
           param('description', 'Description', 'string').
           param('db_address', 'Db Address', 'string').
-          param('db_driver', 'Db Driver', 'string').
           param('db_name', 'Db Name', 'string').
           param('db_password', 'Db Password', 'autopassword').
           param('db_port', 'Db Port', 'pint32').
