@@ -44,11 +44,11 @@ class bareos (
   Optional[String[1]]  $repo_password = undef,
   Boolean $manage_package             = true,
   Boolean $manage_service             = true,
-  Boolean $manage_database            = true,
+  Boolean $manage_database            = false,
   String  $package_ensure             = present,
   String  $service_ensure             = running,
   Boolean $service_enable             = true,
-  Boolean $manage_repo                = true,
+  Boolean $manage_repo                = false,
   Boolean $manage_user                = true,
   String  $package_name               = 'bareos-common',
 
