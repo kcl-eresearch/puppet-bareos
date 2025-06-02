@@ -2083,7 +2083,6 @@ Default value:
 
 ```puppet
 {
-    'db_driver' => 'postgresql',
     'db_name'   => 'bareos_mycatalog',
   }
 ```
@@ -4304,7 +4303,6 @@ The following parameters are available in the `bareos::director::catalog` define
 
 * [`ensure`](#-bareos--director--catalog--ensure)
 * [`db_address`](#-bareos--director--catalog--db_address)
-* [`db_driver`](#-bareos--director--catalog--db_driver)
 * [`db_name`](#-bareos--director--catalog--db_name)
 * [`db_password`](#-bareos--director--catalog--db_password)
 * [`db_port`](#-bareos--director--catalog--db_port)

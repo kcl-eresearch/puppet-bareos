@@ -62,8 +62,7 @@ describe 'bareos::director::pool' do
           '
           bareos::director::pool { ["next_pool", "recycle_pool", "scratch_pool"]: }
           bareos::director::catalog { "name":
-            db_driver => "postgresql",
-            db_name   => "test",
+            db_name => "test",
           }
           bareos::director::storage { "name":
             address => "127.0.0.1",

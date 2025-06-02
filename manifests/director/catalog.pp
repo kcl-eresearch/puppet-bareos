@@ -118,7 +118,6 @@
 define bareos::director::catalog (
   $ensure = present,
   $db_address = undef,
-  $db_driver = undef,
   $db_name = undef,
   $db_password = undef,
   $db_port = undef,

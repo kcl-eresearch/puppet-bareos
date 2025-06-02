@@ -114,8 +114,7 @@ describe 'bareos::director::jobdefs' do
           '
           bareos::director::pool { "name": }
           bareos::director::catalog { "name":
-            db_driver => "postgresql",
-            db_name   => "test",
+            db_name => "test",
           }
           bareos::director::storage { "name":
             address => "127.0.0.1",
