@@ -21,5 +21,6 @@ class bareos::profile::client (
   bareos::client::messages { 'Standard':
     description => 'Send relevant messages to the Director.',
     director    => 'bareos-dir = all, !skipped, !restored',
+    syslog      => 'all, !skipped, !restored',
   }
 }

@@ -10,6 +10,7 @@ class bareos::profile::director::messages {
       '"/var/log/bareos/bareos.log" = all, !skipped, !audit',
       '"/var/log/bareos/bareos-audit.log" = audit',
     ],
+    syslog       => 'all, !skipped',
   }
 
   bareos::director::messages { 'Standard':
@@ -20,6 +21,7 @@ class bareos::profile::director::messages {
     mail             => 'root@localhost = all, !skipped, !saved, !audit',
     console          => 'all, !skipped, !saved, !audit',
     append           => '/var/log/bareos/bareos.log = all, !skipped, !saved, !audit',
+    syslog           => 'all, !skipped',
     catalog          => 'all, !skipped, !saved, !audit',
   }
 }
