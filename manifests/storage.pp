@@ -72,6 +72,15 @@ class bareos::storage (
     tag     => ['bareos', 'bareos_storage'],
   }
 
+  file {
+    '/etc/bareos/mtx-changer.conf':
+      ensure  => 'file',
+      mode    => $bareos::file_mode,
+      owner   => $bareos::file_owner,
+      group   => $bareos::file_group,
+      content => epp('bareos/mtx-changer.conf.epp', {});
+  }
+
   $autochangers.each |String $resource, Hash $attributes| {
     bareos::storage::autochanger { $resource:
       * => $attributes;
