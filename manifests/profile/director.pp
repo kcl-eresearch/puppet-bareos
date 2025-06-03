@@ -35,11 +35,6 @@ class bareos::profile::director (
     }
   )
 
-  class { 'bareos::profile::director::storage':
-    address  => $storage_address,
-    password => $storage_password,
-  }
-
   # Add all default configs
   include bareos::profile::director::client
   include bareos::profile::director::fileset
