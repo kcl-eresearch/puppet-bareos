@@ -42,14 +42,6 @@ class bareos::webui (
     }
   }
 
-  if $manage_service {
-    service { $service_name:
-      ensure => $service_ensure,
-      enable => $service_enable,
-      tag    => ['bareos', 'bareos_webui'],
-    }
-  }
-
   # directories
   file { $config_dir:
     ensure  => directory,
