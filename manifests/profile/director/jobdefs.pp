@@ -20,7 +20,7 @@ class bareos::profile::director::jobdefs {
     level           => 'Full',
     file_set        => 'BareosCatalog',
     schedule_res    => 'WeeklyCycleAfterBackup',
-    run_before_job  => '/usr/lib/bareos/scripts/make_catalog_backup.pl MyCatalog',
+    run_before_job  => '/usr/lib/bareos/scripts/make_catalog_backup MyCatalog',
     run_after_job   => '/usr/lib/bareos/scripts/delete_catalog_backup',
     write_bootstrap => '|/usr/bin/bsmtp -h localhost -f \"\(Bareos\) \" -s \"Bootstrap for Job %j\" root@localhost',
     priority        => 11,
