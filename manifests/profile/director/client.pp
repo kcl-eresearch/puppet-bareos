@@ -15,9 +15,9 @@ class bareos::profile::director::client {
     password    => $password,
     address     => 'localhost',
   }
-  bareos::director::job { 'backup-bareos-fd':
-    job_defs => 'BackupBareosCatalog',
-    client   => 'bareos-director-fd',
-    messages => 'Standard',
-  }
+#  bareos::director::job { 'backup-bareos-fd':
+#    job_defs => 'BackupBareosCatalog',
+#    client   => 'bareos-director-fd',
+#    messages => 'Standard',
+#  }
 }
