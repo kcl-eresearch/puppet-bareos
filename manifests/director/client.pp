@@ -286,7 +286,7 @@ define bareos::director::client (
   $heartbeat_interval = undef,
   $job_retention = undef,
   $maximum_bandwidth_per_job = undef,
-  $maximum_concurrent_jobs = undef,
+  $maximum_concurrent_jobs = 2,
   $ndmp_block_size = undef,
   $ndmp_log_level = undef,
   $ndmp_use_lmdb = undef,

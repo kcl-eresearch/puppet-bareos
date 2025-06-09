@@ -250,7 +250,7 @@ define bareos::director::storage (
   $enabled = undef,
   $heartbeat_interval = undef,
   $maximum_bandwidth_per_job = undef,
-  $maximum_concurrent_jobs = undef,
+  $maximum_concurrent_jobs = 2,
   $maximum_concurrent_read_jobs = undef,
   $media_type = undef,
   $paired_storage = undef,
