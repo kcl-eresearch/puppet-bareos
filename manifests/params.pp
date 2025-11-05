@@ -23,7 +23,7 @@ class bareos::params {
     'bareos-database-postgresql',
     'bareos-database-tools',
   ]
-  $director_service_name = 'bareos-dir'
+  $director_service_name = 'bareos-director'
   $director_managed_dirs = ['catalog',
     'client',
     'console',
@@ -45,7 +45,7 @@ class bareos::params {
 
   # storage
   $storage_package_name = ['bareos-storage', 'bareos-storage-python3-plugin', 'bareos-tools', 'bareos-storage-tape']
-  $storage_service_name = 'bareos-sd'
+  $storage_service_name = 'bareos-storage'
 
   # webui
   $webui_package_name = 'bareos-webui'
