@@ -7,6 +7,7 @@ class bareos::profile::director::pool {
     auto_prune       => true,
     volume_retention => '90 days',
     label_format     => 'Differential-',
+    cleaning_prefix  => 'CLN',
   }
 
   bareos::director::pool { 'Full':
@@ -15,6 +16,7 @@ class bareos::profile::director::pool {
     auto_prune       => true,
     volume_retention => '365 days',
     label_format     => 'Full-',
+    cleaning_prefix  => 'CLN',
   }
 
   bareos::director::pool { 'Incremental':
@@ -23,9 +25,11 @@ class bareos::profile::director::pool {
     auto_prune       => true,
     volume_retention => '30 days',
     label_format     => 'Incremental-',
+    cleaning_prefix  => 'CLN',
   }
 
   bareos::director::pool { 'Scratch':
-    pool_type => 'Scratch',
+    pool_type       => 'Scratch',
+    cleaning_prefix => 'CLN',
   }
 }
