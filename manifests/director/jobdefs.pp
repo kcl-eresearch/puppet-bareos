@@ -637,7 +637,7 @@ define bareos::director::jobdefs (
   $max_virtual_full_interval = undef,
   $max_wait_time = undef,
   $maximum_bandwidth = undef,
-  $maximum_concurrent_jobs = 2,
+  $maximum_concurrent_jobs = undef,
   $messages = undef,
   $next_pool = undef,
   $pool = undef,

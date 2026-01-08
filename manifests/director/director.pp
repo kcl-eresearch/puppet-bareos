@@ -359,7 +359,7 @@ class bareos::director::director (
   $heartbeat_interval = undef,
   $key_encryption_key = undef,
   $log_timestamp_format = undef,
-  $maximum_concurrent_jobs = 2,
+  $maximum_concurrent_jobs = undef,
   $maximum_connections = undef,
   $maximum_console_connections = undef,
   $messages = undef,
