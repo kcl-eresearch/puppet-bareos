@@ -13,9 +13,19 @@ describe 'bareos::webui' do
         it { is_expected.to contain_class('bareos') }
       end
 
+      context 'with manage_service => false' do
+        let(:params) do
+          { manage_service: false }
+        end
+
+        it { is_expected.to compile }
+        it { is_expected.to contain_package('bareos-webui') }
+      end
+
       context 'with directors => { test: { dir_address: "example.org", catalog: "MyCatalog" }}}' do
         let(:params) do
           {
+            manage_service: false,
             directors: {
               test: {
                 dir_address: 'example.org',

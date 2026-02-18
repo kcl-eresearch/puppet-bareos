@@ -78,12 +78,7 @@ describe 'bareos::client::client' do
 
         it { is_expected.to compile.with_all_deps }
         it { is_expected.to contain_file(filename).with_content(res.content) }
-
-        it do
-          expect(subject).to contain_file(filename).
-            that_notifies('Service[bareos-fd]').
-            that_requires('Bareos::Client::Messages[name]')
-        end
+        it { is_expected.to contain_bareos__client__messages('name') }
       end
 
       context 'ensure absent' do

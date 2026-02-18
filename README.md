@@ -1,7 +1,7 @@
 # Bareos Puppet Module
 [![Puppet Forge](http://img.shields.io/puppetforge/v/voxpupuli/bareos.svg)](https://forge.puppetlabs.com/puppet/bareos)
 [![Puppet Forge score](https://img.shields.io/puppetforge/f/voxpupuli/bareos.svg)](https://forge.puppetlabs.com/puppet/bareos)
-[![Build Status](https://travis-ci.org/voxpupuli/puppet-bareos.svg?branch=master)](https://travis-ci.org/voxpupuli/puppet-bareos)
+[![Build Status](https://github.com/voxpupuli/puppet-bareos/actions/workflows/ci.yml/badge.svg)](https://github.com/voxpupuli/puppet-bareos/actions/workflows/ci.yml)
 
 #### Table of Contents
 
@@ -39,7 +39,7 @@ The module depends on the following puppet modules:
 * [Puppetlabs/stdlib](https://forge.puppet.com/puppetlabs/stdlib) - We use the following functions `delete_undef_values` and `downcase`.
 * [Puppetlabs/concat](https://forge.puppet.com/puppetlabs/concat) - Only used for the `webui` configuration.
 * [Puppetlabs/apt](https://forge.puppet.com/puppetlabs/apt) - Repository management for Debian based systems.
-* [Darin/zypprepo](https://forge.puppetlabs.com/darin/zypprepo) - Repository management for OpenSuSE/SLES
+* [Darin/zypprepo](https://forge.puppet.com/darin/zypprepo) - Repository management for OpenSuSE/SLES (optional)
 
 ## Usage with profiles
 
@@ -109,7 +109,7 @@ This class will be automatically included when a resource is defined.
 Here you can define various behaviours for your setup.
 ```puppet
 class { 'bareos':
-  repo_release => '16.2', # Highly recommend to fix your bareos release. Defaults to 'latest'
+  repo_release => '24', # Highly recommend to fix your bareos release. Defaults to '21'
   manage_repo => true, # use the internally shipped repo management
   manage_user => true, # manage the bareos user and group (usually also created by the package)
   manage_package => true, # setup the bareos-common packge
@@ -420,7 +420,15 @@ bareos::director::jobs:
 
 This module is built upon and tested against the versions of Puppet listed in the metadata.json file (i.e. the listed compatible versions on the Puppet Forge).
 
-OS Limitations hardly depends on the availability of the bareos packages in the bareos [repository](http://download.bareos.org/bareos/release/) and the available release. Currently it has been tested on Ubuntu 14.04 and 16.04 and RHEL/CentOS/Rocky/AlmaLinux 8.
+OS Limitations depend on the availability of Bareos packages in the Bareos [repository](http://download.bareos.org/bareos/release/). Currently tested on:
+
+- Debian 10, 11, 12
+- Ubuntu 20.04, 22.04, 24.04
+- CentOS 7, 8
+- Rocky Linux 8, 9
+- AlmaLinux 8, 9
+- RHEL 7, 8, 9
+- Amazon Linux 2, 2023
 
 ## Module Migration
 

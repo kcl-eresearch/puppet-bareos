@@ -4,6 +4,40 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v1.1.0](https://github.com/voxpupuli/puppet-bareos/tree/v1.1.0) (2025-02-18)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-bareos/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Add support for Bareos 22, 23, 24, and 25
+- Add support for Puppet 9
+- Add support for Debian 11, 12
+- Add support for Ubuntu 24.04
+- Add support for Rocky Linux 9
+- Add support for AlmaLinux 9
+- Add support for RHEL 9
+- Add support for Amazon Linux 2023
+
+**Dependency updates:**
+
+- puppetlabs/apt: allow versions < 13.0.0
+- puppetlabs/concat: allow versions < 12.0.0
+- puppetlabs/stdlib: allow versions < 11.0.0
+- Update voxpupuli-test to ~> 10.0
+- Update voxpupuli-acceptance to ~> 4.0
+- Update voxpupuli-release to ~> 4.0
+- Update gha-puppet to v4
+
+**Bug fixes:**
+
+- Fix typo in director.pp: `relaod` → `reload`
+- Update CI badge from Travis CI to GitHub Actions
+
+**Removed:**
+
+- Remove support for Debian 9 (EOL)
+
 ## [v1.0.0](https://github.com/voxpupuli/puppet-bareos/tree/v1.0.0) (2020-09-25)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-bareos/compare/0.4.0...v1.0.0)

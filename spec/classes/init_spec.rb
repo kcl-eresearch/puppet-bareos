@@ -13,9 +13,10 @@ describe 'bareos' do
         it { is_expected.to contain_class('bareos') }
       end
 
-      context 'with repo_subscription: true, repo_username: "test", repo_password: "test"' do
+      context 'with manage_repo: true, repo_subscription: true, repo_username: "test", repo_password: "test"' do
         let(:params) do
           {
+            manage_repo: true,
             repo_subscription: true,
             repo_username: 'test',
             repo_password: 'test'
