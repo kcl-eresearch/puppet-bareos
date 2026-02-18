@@ -15,7 +15,7 @@
 #   Whether https should be used in repo URL
 #
 class bareos::repository (
-  Enum['19.2', '20', '21'] $release             = '21',
+  Enum['19.2', '20', '21', '22', '23', '24', '25'] $release = '21',
   Optional[String[1]]      $gpg_key_fingerprint = undef,
   Boolean                  $subscription        = false,
   Optional[String]         $username            = undef,
@@ -44,7 +44,7 @@ class bareos::repository (
   if $gpg_key_fingerprint {
     $_gpg_key_fingerprint = $gpg_key_fingerprint
   } elsif versioncmp($release, '21') >= 0 {
-    # >= bareos 21
+    # >= bareos 21 (includes 22, 23, 24, 25)
     $_gpg_key_fingerprint = '91DA 1DC3 564A E20A 76C4  CA88 E019 57D6 C9FE D482'
   } elsif versioncmp($release, '20') >= 0 {
     # >= bareos 20
@@ -74,8 +74,15 @@ class bareos::repository (
         'RedHat', 'VirtuozzoLinux': {
           $location = "${url}RHEL_${osmajrelease}"
         }
-        'Centos', 'Rocky', 'AlmaLinux': {
+        'Centos': {
           if versioncmp($release, '21') >= 0 and versioncmp($osmajrelease, '8') >= 0 {
+            $location = "${url}EL_${osmajrelease}"
+          } else {
+            $location = "${url}CentOS_${osmajrelease}"
+          }
+        }
+        'Rocky', 'AlmaLinux': {
+          if versioncmp($release, '21') >= 0 {
             $location = "${url}EL_${osmajrelease}"
           } else {
             $location = "${url}CentOS_${osmajrelease}"
@@ -88,6 +95,9 @@ class bareos::repository (
           case $osmajrelease {
             '2': {
               $location = "${url}RHEL_7"
+            }
+            '2023': {
+              $location = "${url}EL_9"
             }
             default: {
               fail('Operatingsystem is not supported by this module')

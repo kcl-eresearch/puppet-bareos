@@ -55,13 +55,18 @@ class bareos::webui (
     tag     => ['bareos', 'bareos_webui'],
   }
 
+  $_webui_notify = $manage_service ? {
+    true  => Service[$service_name],
+    false => undef,
+  }
+
   file { "${bareos::webui::config_dir}/configuration.ini":
     ensure  => file,
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
     content => template('bareos/webui_configuration.erb'),
-    notify  => Service[$bareos::webui::service_name],
+    notify  => $_webui_notify,
     tag     => ['bareos', 'bareos_webui'],
   }
 
