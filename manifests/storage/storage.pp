@@ -386,7 +386,7 @@ class bareos::storage::storage (
   $heartbeat_interval = undef,
   $log_timestamp_format = undef,
   $maximum_bandwidth_per_job = undef,
-  $maximum_concurrent_jobs = $facts['tape_drive_count'] ? $facts['tape_drive_count'] : 1,
+  $maximum_concurrent_jobs = $facts['tape_drive_count'],
   $maximum_connections = undef,
   $maximum_network_buffer_size = undef,
   $messages = undef,

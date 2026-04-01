@@ -1,4 +1,4 @@
-# @summary 
+# @summary
 #   The Device Resource specifies the details of each device (normally a tape drive) that can be used by the Storage daemon. There may be multiple Device resources for a single Storage daemon. In general, the properties specified within the Device resource are specific to the Device.
 #
 # @param ensure
@@ -477,7 +477,7 @@ define bareos::storage::device (
   $label_type = undef,
   $maximum_block_size = undef,
   $maximum_changer_wait = undef,
-  $maximum_concurrent_jobs = $facts['tape_drive_count'] ? $facts['tape_drive_count'] : 1,
+  $maximum_concurrent_jobs = $facts['tape_drive_count'],
   $maximum_file_size = undef,
   $maximum_job_spool_size = undef,
   $maximum_network_buffer_size = undef,

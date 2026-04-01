@@ -1,4 +1,4 @@
-# @summary 
+# @summary
 #   To define on what physical device the Volumes should be mounted.
 #   You may have one or more Storage definitions.
 # @param ensure
@@ -250,7 +250,7 @@ define bareos::director::storage (
   $enabled = undef,
   $heartbeat_interval = undef,
   $maximum_bandwidth_per_job = undef,
-  $maximum_concurrent_jobs = $facts['tape_drive_count'] ? $facts['tape_drive_count'] : 1,
+  $maximum_concurrent_jobs = $facts['tape_drive_count'],
   $maximum_concurrent_read_jobs = undef,
   $media_type = undef,
   $paired_storage = undef,
