@@ -11,9 +11,10 @@ class bareos::profile::director::client {
 
   # configure client on bareos director
   bareos::director::client { 'bareos-director-fd':
-    description => 'Client resource of the Director itself.',
-    password    => $password,
-    address     => 'localhost',
+    description             => 'Client resource of the Director itself.',
+    password                => $password,
+    address                 => 'localhost',
+    maximum_concurrent_jobs => $facts['tape_drive_count'],
   }
   bareos::director::job { 'backup-bareos-fd':
     job_defs => 'BackupBareosCatalog',
