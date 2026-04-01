@@ -477,7 +477,7 @@ define bareos::storage::device (
   $label_type = undef,
   $maximum_block_size = undef,
   $maximum_changer_wait = undef,
-  $maximum_concurrent_jobs = undef,
+  $maximum_concurrent_jobs = $facts['tape_drive_count'] ? $facts['tape_drive_count'] : 1,
   $maximum_file_size = undef,
   $maximum_job_spool_size = undef,
   $maximum_network_buffer_size = undef,
