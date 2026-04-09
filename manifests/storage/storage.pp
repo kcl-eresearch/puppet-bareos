@@ -456,7 +456,6 @@ class bareos::storage::storage (
       [$heartbeat_interval, 'Heartbeat Interval', 'time', false],
       [$log_timestamp_format, 'Log Timestamp Format', 'string', false],
       [$maximum_bandwidth_per_job, 'Maximum Bandwidth Per Job', 'speed', false],
-      [$maximum_concurrent_jobs, 'Maximum Concurrent Jobs', 'pint32', false],
       [$maximum_connections, 'Maximum Connections', 'pint32', false],
       [$maximum_network_buffer_size, 'Maximum Network Buffer Size', 'pint32', false],
       [$messages, 'Messages', 'res', false],
