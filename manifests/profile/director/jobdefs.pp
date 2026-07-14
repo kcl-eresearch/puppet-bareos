@@ -10,8 +10,8 @@ class bareos::profile::director::jobdefs {
     priority                 => 10,
     write_bootstrap          => '/var/lib/bareos/%c.bsr',
     full_backup_pool         => 'Full',
-    differential_backup_pool => 'Differential',
-    incremental_backup_pool  => 'Incremental',
+    differential_backup_pool => 'Full',
+    incremental_backup_pool  => 'Full',
   }
 
   bareos::director::jobdefs { 'BackupBareosCatalog':
