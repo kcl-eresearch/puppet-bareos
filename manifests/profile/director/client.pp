@@ -17,8 +17,10 @@ class bareos::profile::director::client {
     maximum_concurrent_jobs => $facts['tape_drive_count'],
   }
   bareos::director::job { 'backup-bareos-fd':
-    job_defs => 'BackupBareosCatalog',
-    client   => 'bareos-director-fd',
-    messages => 'Standard',
+    job_defs               => 'BackupBareosCatalog',
+    client                 => 'bareos-director-fd',
+    messages               => 'Standard',
+    storage                => 'Tape',
+    prefer_mounted_volumes => false,
   }
 }
