@@ -4,8 +4,8 @@ class bareos::profile::director::jobdefs {
   bareos::director::jobdefs { 'DefaultJob':
     type                     => 'backup',
     file_set                 => 'LinuxAll', # selftest
-    storage                  => 'File',
-    pool                     => 'Incremental',
+    storage                  => 'Tape',
+    pool                     => 'Full',
     messages                 => 'Standard',
     priority                 => 10,
     write_bootstrap          => '/var/lib/bareos/%c.bsr',

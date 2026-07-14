@@ -21,6 +21,8 @@ class bareos::profile::director::client {
     client                 => 'bareos-director-fd',
     messages               => 'Standard',
     storage                => 'Tape',
+    pool                   => 'Full',
+    full_backup_pool       => 'Full',
     prefer_mounted_volumes => false,
   }
 }
