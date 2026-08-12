@@ -16,13 +16,13 @@ class bareos::profile::director::client {
     address                 => 'localhost',
     maximum_concurrent_jobs => $facts['tape_drive_count'],
   }
-  bareos::director::job { 'backup-bareos-fd':
-    job_defs               => 'BackupBareosCatalog',
-    client                 => 'bareos-director-fd',
-    messages               => 'Standard',
-    storage                => 'Tape',
-    pool                   => 'Full',
-    full_backup_pool       => 'Full',
-    prefer_mounted_volumes => false,
-  }
+#  bareos::director::job { 'backup-bareos-fd':
+#    job_defs               => 'BackupBareosCatalog',
+#    client                 => 'bareos-director-fd',
+#    messages               => 'Standard',
+#    storage                => 'Tape',
+#    pool                   => 'Full',
+#    full_backup_pool       => 'Full',
+#    prefer_mounted_volumes => false,
+#  }
 }
